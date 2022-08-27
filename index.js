@@ -2,7 +2,6 @@
 
 const fs = require('fs');
 const argv = require('yargs').argv;
-const readlineSync = require('readline-sync');
 
 const helpers = require('./lib/helpers');
 const log = require('./lib/log');
@@ -55,10 +54,7 @@ const chain = new Promise((resolve, reject) => {
   if (versions.length !== 3) {
     log.warning(`I can\'t understand format of the version "${versionCurrent}".`);
   }
-
-  const question = log.info(`Use "${version}" as the next version? [y/n] `, 0, true);
-  const answer = readlineSync.question(question).toLowerCase();
-  answer === 'y' ? resolve() : reject('Process canceled.');
+  resolve()
 });
 
 
@@ -84,25 +80,7 @@ const update = chain.then(() => {
 });
 
 const commit = update.then(() => {
-  log.notice(`\nI'm ready to cooperate with the git!`);
-  log.info('I want to make a commit with message:', 1);
-  log.info(`"${message}"`, 2);
-  log.info(`I want to add a tag:`, 1);
-  log.info(`"v${version}"`, 2);
-
-  const question = log.info(`Do you allow me to do this? [y/n] `, 1, true);
-  const answer = readlineSync.question(question).toLowerCase();
-  if (answer === 'y') {
-    return helpers.commitVersionIncrease(version, message, [
-      pathToPackage,
-      ...pathsToPlists,
-      pathToGradle
-    ]).then(() => {
-      log.success(`Commit with files added. Run "git push".`, 1);
-    });
-  } else {
-    log.warning(`Skipped.`, 1);
-  }
+  log.warning(`Skipped.`, 1);
 });
 
 commit.then(() => {
