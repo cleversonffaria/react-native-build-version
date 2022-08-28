@@ -1,21 +1,23 @@
-**Please, create pull request to the project if you improve something!**
-**It will help us to create hight-quality package together.**
+**Por favor, crie um pull request para o projeto se você melhorar alguma coisa!**
+**Isso nos ajudará a criar juntos um pacote de alta qualidade.**
+
+Esse projeto foi modificado por [Cleverson Fernandes](https://github.com/cleversonffaria), porem créditos de desenvolvimento para: [gustarus](https://github.com/gustarus/react-native-version-up)
 
 # React native version upper
 
-Increase `major`, `minor` or `patch` part of the version and build number in your app in package.json and in ios and android projects with one command.
+Aumente`major`, `minor` ou `patch` da versão e do número da compilação em seu aplicativo em package.json e em projetos ios e android com um comando.
 
 ```
 node ./node_modules/react-native-version-up/index.js --patch -m 'commit message'
 ```
 
-With this script you can:
+Com este script você pode:
 
 - Increase `major`, `minor` or `patch` part in the version.
 - Make a git commit with version changes.
 - Make a git tag with new version.
 
-## Example
+## Exemplo
 
 ```bash
 > yarn run version:up -- --patch
@@ -32,18 +34,18 @@ The version will be changed:
 
 Use "0.2.3" as the next version? [y/n] y
 
-Updating versions
-  Updating version in package.json...
-    Version in package.json changed.
-  Updating version in xcode project...
-    Version and build number in ios project (plist file) changed.
-  Updating version in android project...
-    Version and build number in android project (gradle file) changed.
+Atualizando versões
+    Atualizando versão em package.json...
+  Versão no package.json alterada.
+    Atualizando versão no projeto xcode...
+  Versão e número de compilação no projeto ios (arquivo plist) alterados.
+    Atualizando versão no projeto android...
+  Versão e número de compilação no projeto android (arquivo gradle) alterados.
 
-Done!
+Feito!
 ```
 
-## Installation
+## Instalação
 
 ```
 yarn add react-native-version-up
@@ -55,9 +57,9 @@ Or via npm:
 npm install react-native-version-up --save
 ```
 
-## Usage
+## Uso
 
-**1. Add command in the section `scripts` in the `package.json`**
+**1. Adicione o comando na seção `scripts` em `package.json`**
 
 ```json
 {
@@ -68,7 +70,7 @@ npm install react-native-version-up --save
 }
 ```
 
-**2. Make sure you have defined the version**
+**2. Certifique-se de ter definido a versão**
 
 ```json
 {
@@ -80,14 +82,14 @@ npm install react-native-version-up --save
 }
 ```
 
-**3. Commit the package.json (optional)**
+**3. Confirme o package.json (opcional)**
 
 ```bash
 git add package.json
 git commit -m 'version:up command added'
 ```
 
-**4. Increase version when needed**
+**4. Aumente a versão quando necessário**
 
 ```bash
 yarn version:up --major
@@ -101,7 +103,7 @@ npm run version:up -- --major
 
 ## Options
 
-You can pass option name and value with following syntax (remember to put `--` before options if you are using npm, with yarn this is not needed):
+Você pode passar o nome e o valor da opção com a seguinte sintaxe (lembre-se de colocar `--` antes das opções se estiver usando npm, com yarn isso não é necessário):
 
 ```
 yarn version:up --flag value

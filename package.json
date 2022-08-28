@@ -1,6 +1,6 @@
 {
-  "name": "react-native-build-version",
-  "version": "1.0.9",
+  "name": "rn-update-build-version",
+  "version": "1.0.0",
   "description": "Aumente a versão e o número de compilação em seu aplicativo nativo de reação para package.json e ambas as plataformas (ios && android) com um comando",
   "main": "index.js",
   "scripts": {
@@ -8,17 +8,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gustarus/react-native-build-version.git"
+    "url": "git+https://github.com/cleversonffaria/react-native-build-version.git"
   },
   "keywords": [
     "react native version",
-    "react native version up"
+    "react native version update",
+    "react native build version"
   ],
   "author": "Cleverson Fernandes",
   "license": "MIT",
   "dependencies": {
     "chalk": "2.0.1",
-    "child_process": "1.0.2",
     "fs": "0.0.1-security",
     "readline-sync": "1.4.7",
     "yargs": "8.0.2"
