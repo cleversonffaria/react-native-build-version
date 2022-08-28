@@ -1,6 +1,6 @@
 {
   "name": "rn-update-build-version",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Aumente a versão e o número de compilação em seu aplicativo nativo de reação para package.json e ambas as plataformas (ios && android) com um comando",
   "main": "index.js",
   "scripts": {

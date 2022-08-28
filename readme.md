@@ -1,14 +1,14 @@
 **Por favor, crie um pull request para o projeto se você melhorar alguma coisa!**
 **Isso nos ajudará a criar juntos um pacote de alta qualidade.**
 
-Esse projeto foi modificado por [Cleverson Fernandes](https://github.com/cleversonffaria), porem créditos de desenvolvimento para: [gustarus](https://github.com/gustarus/react-native-version-up)
+Esse projeto foi modificado por [Cleverson Fernandes](https://github.com/cleversonffaria), porem créditos de desenvolvimento para: [gustarus](https://github.com/gustarus/rn-update-build-version)
 
 # React native version upper
 
 Aumente`major`, `minor` ou `patch` da versão e do número da compilação em seu aplicativo em package.json e em projetos ios e android com um comando.
 
 ```
-node ./node_modules/react-native-version-up/index.js --patch -m 'commit message'
+node ./node_modules/rn-update-build-version/index.js --patch -m 'commit message'
 ```
 
 Com este script você pode:
@@ -21,7 +21,7 @@ Com este script você pode:
 
 ```bash
 > yarn run version:up -- --patch
-$ node ./node_modules/react-native-version-up/index.js "--patch"
+$ node ./node_modules/rn-update-build-version/index.js "--patch"
 
 I'm going to increase the version in:
   - package.json (./package.json);
@@ -48,13 +48,13 @@ Feito!
 ## Instalação
 
 ```
-yarn add react-native-version-up
+yarn add rn-update-build-version
 ```
 
 Or via npm:
 
 ```
-npm install react-native-version-up --save
+npm install rn-update-build-version --save
 ```
 
 ## Uso
@@ -65,7 +65,7 @@ npm install react-native-version-up --save
 {
   "name": "your-project-name",
   "scripts": {
-    "version:up": "node ./node_modules/react-native-version-up/index.js"
+    "version:up": "node ./node_modules/rn-update-build-version/index.js"
   }
 }
 ```
@@ -77,7 +77,7 @@ npm install react-native-version-up --save
   "name": "your-project-name",
   "version": "1.0.0",
   "scripts": {
-    "version:up": "node ./node_modules/react-native-version-up/index.js"
+    "version:up": "node ./node_modules/rn-update-build-version/index.js"
   }
 }
 ```
