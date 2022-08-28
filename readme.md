@@ -21,7 +21,7 @@ Com este script você pode:
 
 ```bash
 > yarn run version:up -- --patch
-$ node ./node_modules/rn-update-build-version/index.js "--patch"
+$ rn-update-build-version "--patch"
 
 I'm going to increase the version in:
   - package.json (./package.json);
@@ -65,7 +65,9 @@ npm install rn-update-build-version --save
 {
   "name": "your-project-name",
   "scripts": {
-    "version:up": "node ./node_modules/rn-update-build-version/index.js"
+    "version:patch": "node ./node_modules/rn-update-build-version/index.js --patch",
+    "version:major": "node ./node_modules/rn-update-build-version/index.js --major",
+    "version:minor": "node ./node_modules/rn-update-build-version/index.js --minor"
   }
 }
 ```
@@ -77,7 +79,9 @@ npm install rn-update-build-version --save
   "name": "your-project-name",
   "version": "1.0.0",
   "scripts": {
-    "version:up": "node ./node_modules/rn-update-build-version/index.js"
+    "version:patch": "node ./node_modules/rn-update-build-version/index.js --patch",
+    "version:major": "node ./node_modules/rn-update-build-version/index.js --major",
+    "version:minor": "node ./node_modules/rn-update-build-version/index.js --minor"
   }
 }
 ```
