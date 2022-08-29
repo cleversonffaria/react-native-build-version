@@ -26,7 +26,7 @@ let patch = helpers.version(versions[2], argv.patch, argv.major || argv.minor);
 const version = `${major}.${minor}.${patch}`;
 
 // getting next build number
-const buildCurrent = helpers.getBuildNumberFromPlist(pathsToPlists[0]);
+const buildCurrent = helpers.getBuildNumber(pathToGradle);
 const build = buildCurrent + 1;
 
 // getting commit message
@@ -70,6 +70,7 @@ const update = chain
 
     helpers.changeVersionInPackage(pathToPackage, version);
     log.success(`Version in package.json changed.`, 2);
+    log.notice(`version = ${version}`, 2);
   })
   .then(() => {
     log.info("Updating version in xcode project...", 1);
@@ -81,6 +82,8 @@ const update = chain
       `Version and build number in ios project (plist file) changed.`,
       2
     );
+    log.notice(`versionName = ${version}`, 2);
+    log.notice(`versionCode = ${version}`, 2);
   })
   .then(() => {
     log.info("Updating version in android project...", 1);
@@ -90,6 +93,8 @@ const update = chain
       `Version and build number in android project (gradle file) changed.`,
       2
     );
+    log.notice(`versionName = ${version}`, 2);
+    log.notice(`versionCode = ${build}`, 2);
   });
 
 const commit = update.then(() => {
