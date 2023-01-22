@@ -10,6 +10,7 @@ const pathToRoot = process.cwd();
 const pathToPackage = argv.pathToPackage || `${pathToRoot}/package.json`;
 const info = helpers.getPackageInfo(pathToPackage);
 
+const pathToExpoApp = `${pathToRoot}/app.json`;
 const pathToPlist =
   argv.pathToPlist || `${pathToRoot}/ios/${info.name}/Info.plist`;
 const pathToGradle =
@@ -37,6 +38,7 @@ const messageTemplate =
 const message = messageTemplate.replace("${version}", version);
 
 log.info("\nI'm going to increase the version in:");
+log.info(`- app.json (${pathToExpoApp});`, 1);
 log.info(`- package.json (${pathToPackage});`, 1);
 log.info(`- ios project (${pathsToPlists.join(", ")});`, 1);
 log.info(`- android project (${pathToGradle}).`, 1);
@@ -63,17 +65,18 @@ const chain = new Promise((resolve, reject) => {
 
 const update = chain
   .then(() => {
-    log.notice("\nUpdating versions");
-  })
-  .then(() => {
-    log.info("Updating version in package.json...", 1);
+    log.info("\nUpdating version...", 1);
 
     helpers.changeVersionInPackage(pathToPackage, version);
+    helpers.changeVersionInExpoApp(pathToExpoApp, version);
     log.success(`Version in package.json changed.`, 2);
     log.notice(`version = ${version}`, 2);
+    log.success(`Version in app.json changed.`, 2);
+    log.notice(`version = ${version}`, 2);
+    log.notice(`runtimeVersion = ${version}`, 2);
   })
   .then(() => {
-    log.info("Updating version in xcode project...", 1);
+    log.info("\nUpdating version in xcode project...", 1);
 
     pathsToPlists.forEach((pathToPlist) => {
       helpers.changeVersionAndBuildInPlist(pathToPlist, version, build);
@@ -86,7 +89,7 @@ const update = chain
     log.notice(`versionCode = ${version}`, 2);
   })
   .then(() => {
-    log.info("Updating version in android project...", 1);
+    log.info("\nUpdating version in android project...", 1);
 
     helpers.changeVersionAndBuildInGradle(pathToGradle, version, build);
     log.success(

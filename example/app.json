@@ -2,9 +2,8 @@
   "expo": {
     "name": "example",
     "slug": "example",
-    "version": "1.0.0",
-    "assetBundlePatterns": [
-      "**/*"
-    ]
+    "version": "20.0.1",
+    "assetBundlePatterns": ["**/*"],
+    "runtimeVersion": "20.0.1"
   }
 }
